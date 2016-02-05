@@ -13,3 +13,39 @@
  *= require_tree .
  *= require_self
  */
+
+
+.new-job input,
+.new-job textarea{
+    width: 90%;
+    margin: 15px auto;
+    padding: 10px;
+    border-radius:5px;
+    
+}
+.new-job label {
+    text-align:left;
+    width:90%;
+}
+span.picture {
+    margin-top:10px;
+    input{border: 0};
+}
+.show-job {
+    margin:10px;
+}
+.all-jobs section.user_menu li {
+    min-height:50px;
+}
+.all-jobs li {
+    list-style:none;
+    min-height:180px;
+}
+.job-title {
+    font-size:28px;
+    font-weight:bold;
+}
+.job-address {
+    font-size:18px;
+    
+}

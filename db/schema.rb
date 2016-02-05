@@ -11,7 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160131044626) do
+ActiveRecord::Schema.define(version: 20160205185422) do
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "commenter"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "job_id"
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.string   "job_title"
+    t.string   "job_address"
+    t.string   "job_contact_name"
+    t.string   "job_contact_phone"
+    t.text     "job_description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.string   "picture"
+    t.string   "job_state"
+    t.string   "job_request_date"
+    t.string   "job_contact_email"
+    t.float    "latitude"
+    t.float    "longitude"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.boolean  "like"
+    t.integer  "user_id"
+    t.integer  "job_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

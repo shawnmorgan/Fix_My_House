@@ -1,2 +1,62 @@
-<h3>Welcome</h3>
-<p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
+<% if user_signed_in? %>
+<div class="container">
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="text-center">Welcome Back </h1>
+    </div>
+<hr>
+<br/>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <h3>Latest Comments</h3>
+        <% @comments = Comment.where(user_id: current_user.id) %>
+        <% @comments.each do |comment| %>
+        <div class="well">
+            <%= comment.commenter %><br/>
+            <%= comment.body %><br/>
+            <%= time_ago_in_words(comment.created_at) %> Ago
+        </div>
+        <% end %>
+    </div>
+    <div class="col-md-4">
+        <h3>Latest Jobs</h3>
+        <% @jobs = Job.where(user_id: current_user.id) %>
+        <% @jobs.each do |job| %>
+        <p><%= link_to job.job_title, job_path(job) %></p>
+        <% end %> 
+        
+    </div>
+    <div class="col-md-4">
+        <h3>Notifications</h3>
+        <p>There are no notifications</p>
+    </div>    
+    
+</div>
+</div>
+<% else %>
+<div class="container">
+<br>
+<br>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <h1 class="text-center">Welcome to the<br> Fix My House<br> Test App</h1>
+        <p class="text-center">Please excuse the mess. We are working hard to get everything perfect for you.</p>
+        <br>
+        <p class="text-center">
+        <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-warning btn-large text-center" %>
+        </p>
+        <p class="text-center">
+        <%= link_to 'Sign in', new_user_session_path, class: "btn btn-success btn-large text-center" %>
+        </p>
+    </div>
+
+
+<% end %>
+
+</div>
+    
+    
+    
+</div>
+
