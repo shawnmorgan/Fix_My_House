@@ -31,7 +31,18 @@
         <h3>Notifications</h3>
         <p>There are no notifications</p>
     </div>    
-    
+
+
+</div>
+<hr>
+<br/>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-3"><%= link_to 'See All Jobs', jobs_path, class: "btn btn-warning btn-small" %></div>
+        <div class="col-md-3"><%= link_to 'Create New Job', new_job_path, class: "btn btn-success" %></div>
+        <div class="col-md-3"><%= link_to 'Contact Support', new_contact_path, class: "btn btn-danger" %></div>
+        <div class="col-md-3"><%= link_to "Text Contractor", new_message_path, class: "btn btn-info" %></div>
+    </div>
 </div>
 </div>
 <% else %>

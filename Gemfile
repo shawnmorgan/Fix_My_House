@@ -12,6 +12,8 @@ gem 'gmaps4rails'
 gem 'geocoder'
 gem 'mail_form'
 gem 'textmagic', '~> 0.6'
+gem 'tinymce-rails'
+gem 'fog', '1.23.0'
 group :development, :test do
   gem 'byebug'
 end

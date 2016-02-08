@@ -15,5 +15,6 @@
 //= require bootstrap-sprockets
 //= require underscore
 //= require gmaps/google
+//= require tinymce
 //= require_tree .
 
