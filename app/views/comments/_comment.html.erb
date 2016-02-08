@@ -1,0 +1,12 @@
+
+<div class="row">
+    <div class="col-md-8 well">
+    
+    
+    <div class="comment_content">
+        <p class="comment_name"><strong><%= comment.commenter %></strong></p>
+        <p class="comment_body"><%= comment.body %></p>
+        <p class="comment_time"><%= time_ago_in_words(comment.created_at) %> Ago</p>
+    </div>
+</div>
+</div>

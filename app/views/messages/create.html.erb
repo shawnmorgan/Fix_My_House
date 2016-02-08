@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <h2 class="text-center">Message Sent!</h2>
+<p class="text-center">
+<%= "The message to #{@phone_number} containing the text '#{@message}' has been sent successfully!" %>
+</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3"><%= link_to 'Return to All Jobs', jobs_path, class: "btn btn-warning btn-small" %></div>
+        <div class="col-md-3"><%= link_to 'Contact Support', new_contact_path, class: "btn btn-danger" %></div>
+        <div class="col-md-3"><%= link_to "Text Contractor", new_message_path, class: "btn btn-info" %></div>
+    </div>
+</div>

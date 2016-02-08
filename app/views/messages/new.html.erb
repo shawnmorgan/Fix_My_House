@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <h2 class="text-center">Text Your Contractor</h2>
+            <hr/>
+            <%= form_for :message, url: messages_path do |f| %>
+            <p><%= f.label :phone_number %><br/>
+            <%= f.text_field :phone_number %></p>
+            <p><%= f.label :message %><br/>
+            <%= f.text_field :message %></p>
+            <%= f.submit "Send Message", class: "btn btn-info" %>
+            <% end %>
+        </div>
+    </div>
+</div>

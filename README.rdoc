@@ -1,0 +1,9 @@
+testing specs for jobs:
+job_title: string
+Job_address: string
+job_description: text
+
+-job_title must be present
+-Job_address must be present
+-Job_description must be present
+-job_title must be between 10 characters and less than 150 characters

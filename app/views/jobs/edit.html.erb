@@ -1,0 +1,64 @@
+<h1>Edit Job</h1>
+<hr/>
+
+
+<% if @job.errors.any? %>
+    <div class="row">
+        <div class="alert alert-danger col-md-8 col-md-offset-2">
+            <h5>Please correct the following errors</h5>
+            <ul>
+                <% @job.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+<% end %>
+
+
+<div class="row">
+    <div class="col-md-6 well col-md-offset-2 new-job">
+             <%= form_for(@job, html: { multipart: true }) do |f| %>
+            <%= f.label :job_title %>
+            <%= f.text_field :job_title %>
+        
+            <%= f.label :job_address %>
+            <%= f.text_field :job_address %>
+            
+            <%= f.label :job_contact_name %>
+            <%= f.text_field :job_contact_name %>
+            
+            <%= f.label :job_contact_phone %>
+            <%= f.text_field:job_contact_phone%>
+            
+            <%= f.label :job_contact_email %>
+            <%= f.text_field :job_contact_email %>
+            
+            <%= f.label :job_request_date %>
+            <%= date_field :job_request_date, :class => 'datepicker' %>
+            
+            <%= f.label :job_description %>
+            <%= f.text_area :job_description, rows: 10 %>
+            
+            <span class="picture">
+                <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png,image/jpg' %>
+            </span>
+            
+            
+            <%= f.submit 'Edit Job', class: "btn btn-success" %>
+        
+        <% end %>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $('#job_picture').bind('change', function() {
+         size_in_megabytes = this.files[0].size/1024/1024;
+         if (size_in_megabytes > 5) {
+             alert("Maximum file size is 5MB. Please choose a smaller file.");
+         }
+        
+        
+    });
+    
+</script>

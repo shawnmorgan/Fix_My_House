@@ -1,0 +1,68 @@
+<div class="container"
+
+<p>
+    <h1><%= @job.job_title %></h1>
+</p>
+<div class="row">
+    <div class="col-md-8 well">
+        <%= link_to "Edit Job", edit_job_path(@job), class: "btn btn-success pull-right" %>
+        <h3><address> <%= @job.job_address %></address></h3>
+        <div style='width: 80%;'>
+          <div id="map" style='width: 650px; height: 300px;'>
+              <script>
+                    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+              </script>
+              
+          </div>
+          <script type="text/javascript">
+                handler = Gmaps.build('Google');
+                handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+                  
+                     markers = handler.addMarkers(<%=raw @hash.to_json %>);
+                  handler.bounds.extendWith(markers);
+                  handler.fitMapToBounds();
+                  handler.map.serviceObject.setZoom(16);
+                });
+          </script>
+        </div>
+        <p><%= @job.latitude %> , <%= @job.longitude %></p>
+        <h4>Contact Details</h4>
+        <hr/>
+        <p>Contact Name: <strong><%= @job.job_contact_name %></strong></p>
+        <p>Contact Phone: <strong><%= @job.job_contact_phone %></strong></p>
+        <p>Contact Email: <strong><%= @job.job_contact_email %></strong></p>
+        <hr/>
+        <p>Job Request Date: <strong><%= simple_format(@job.job_request_date) %></strong></p>
+        <hr/>
+        <h4>Job Description</h4>
+        <p><%= simple_format(@job.job_description) %></p>
+        <span class="pull-right"><%= @job.job_state %> Job: <strong>Pending Review</strong></span>        
+    </div>
+        <div class="col-md-4 pull-right center">
+        <h4>Job Images</h4>
+        <% if @job.picture? %>
+        <%= image_tag(@job.picture.url, size: "250x150", class: "img-responsive") if @job.picture? %>
+        <% else %>
+        <p class="text-left">There are no pictures. <%= link_to "Edit Job", edit_job_path(@job) %> to add pictures.</p>
+        <% end %>
+    </div>
+    
+</div>
+
+
+
+<h3>Comments</h3>
+<h5><%= @job.comments.count class: "pull-right" %> Comments</h5>
+<%= render @job.comments %>
+
+
+<%= render "comments/form" %>
+
+
+<div class="row">
+<div class="col-md-3"><%= link_to 'Return to All Jobs', jobs_path, class: "btn btn-warning btn-small" %></div>
+<div class="col-md-3"><%= link_to 'Contact Support', new_contact_path, class: "btn btn-danger" %></div>
+<div class="col-md-3"><%= link_to "Text Contractor", new_message_path, class: "btn btn-info" %></div>
+</div>
+
+</div>
