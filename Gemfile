@@ -13,7 +13,7 @@ gem 'geocoder'
 gem 'mail_form'
 gem 'textmagic', '~> 0.6'
 gem 'tinymce-rails'
-gem 'fog', '1.23.0'
+gem 'fog', '1.36.0'
 gem 'net-ssh'
 group :development, :test do
   gem 'byebug'
