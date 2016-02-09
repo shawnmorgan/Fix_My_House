@@ -321,7 +321,7 @@ DEPENDENCIES
   carrierwave (= 0.10.0)
   coffee-rails (~> 4.1.0)
   devise
-  fog (= 1.36.0)
+  fog (~> 1.36.0)
   geocoder
   gmaps4rails
   high_voltage
